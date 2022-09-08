@@ -4,8 +4,6 @@
 </div>
 
 
-https://user-images.githubusercontent.com/27915819/161392594-fc0082f7-5c37-4919-830a-2dd423c1d025.mp4
-
 > **BEVFormer: Learning Bird's-Eye-View Representation from Multi-Camera Images via Spatiotemporal Transformers**
 > - [Paper](http://arxiv.org/abs/2203.17270) | [Blog](https://www.zhihu.com/question/521842610/answer/2431585901) (in Chinese) | Presentation Slides at CVPR 2022 Workshop (soon) | Live-streaming video on BEV Perception (soon)
 

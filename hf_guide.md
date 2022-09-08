@@ -6,7 +6,7 @@
 
 萤火集群要求启动分布式时 `bind_numa`，因此推荐使用 `torch.multiprocessing.spawn` 启动，不推荐使用 `torch.distributed.launch`。
 
-改动前
+修改前
 
 ```
 def main():
@@ -17,7 +17,7 @@ if __name__ == '__main__':
     main()
 ```
 
-改动后
+修改后
 
 ```
 import hfai
@@ -38,9 +38,9 @@ if __name__ == '__main__':
 - `world_size` 代表节点的数量
 - `rank` 代表当前节点的 id
 
-因此需要对初始化分布式部分进行改动。
+因此需要对初始化分布式部分进行修改。
 
-改动前
+修改前
 
 ```
 def main(local_rank, args):
@@ -55,7 +55,7 @@ def main(local_rank, args):
         cfg.gpu_ids = range(world_size)
 ```
 
-改动后
+修改后
 
 ```
 def main(local_rank, args):
@@ -92,7 +92,7 @@ def main(local_rank, args):
 
 为了保证集群多个进程的写文件操作只执行一次，需要在写文件前检查 `local_rank` 变量和 `rank` 变量。
 
-改动前
+修改前
 
 ```
 def main(local_rank, args):
@@ -101,7 +101,7 @@ def main(local_rank, args):
     cfg.dump(osp.join(cfg.work_dir, osp.basename(args.config)))
 ```
 
-改动后
+修改后
 
 ```
 def main(local_rank, args):
